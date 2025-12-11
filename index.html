@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HALLUCINATE | When AI Lies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="bg-effects">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <canvas id="matrix-rain"></canvas>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- Floating Particles -->
+    <div id="particles"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="#hero" class="nav-logo">Hallucinations</a>
+        <div class="nav-links">
+            <a href="#problem">Problem</a>
+            <a href="#mechanism">Mechanism</a>
+            <a href="#solutions">Solutions</a>
+            <a href="#action">Action</a>
+            <a href="#article">Full Article</a>
+        </div>
+        <div class="nav-progress">
+            <div class="progress-fill"></div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-line">When AI</span>
+                <span class="title-line gradient-text">Hallucinates</span>
+            </h1>
+            <p class="hero-tagline">The truth about why machines lie, and how to stop them.</p>
+            
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span class="stat-value" data-target="82">0</span><span class="stat-unit">%</span>
+                    <span class="stat-label">False Medical Answers</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value" data-target="47">0</span><span class="stat-unit">%</span>
+                    <span class="stat-label">Decisions on Fake Data</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value" data-target="4.3">0</span><span class="stat-unit">h</span>
+                    <span class="stat-label">Weekly Fact-Checking</span>
+                </div>
+            </div>
+
+            <a href="#solutions" class="cta-button">
+                <span>See the Solutions</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+
+        <div class="hero-visual">
+            <div class="brain-core">
+                <div class="core-glow"></div>
+                <div class="ring ring-1"></div>
+                <div class="ring ring-2"></div>
+                <div class="ring ring-3"></div>
+                <div class="center-dot"></div>
+            </div>
+        </div>
+
+        <div class="scroll-hint">
+            <div class="scroll-line"></div>
+            <span>Scroll</span>
+        </div>
+    </header>
+
+    <!-- Problem Section -->
+    <section class="section" id="problem">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">01 / THE PROBLEM</span>
+                <h2 class="section-title">The Scale of AI Deception</h2>
+            </div>
+
+            <div class="problem-showcase">
+                <div class="terminal-box">
+                    <div class="terminal-header">
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <div class="terminal-content">
+                        <p class="terminal-prompt">$ ask-ai "Who was the 184th president?"</p>
+                        <p class="terminal-response">The 184th president was <span class="fake">John Mitchell Harrison</span>, inaugurated in <span class="fake">2089</span>...</p>
+                        <p class="terminal-error">⚠ HALLUCINATION: Only 47 presidents have existed</p>
+                    </div>
+                </div>
+
+                <div class="problem-text">
+                    <p>AI doesn't hesitate. It doesn't check facts. It generates plausible-sounding fiction with complete confidence.</p>
+                    <p>This is <span class="highlight">hallucination</span>: the single biggest barrier to AI reliability in healthcare, law, and business.</p>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number"><span class="counter" data-target="50">0</span>-<span class="counter" data-target="82">0</span>%</div>
+                    <p>False information rate in medical AI responses</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number"><span class="counter" data-target="47">0</span>%</div>
+                    <p>Enterprise users who made decisions based on hallucinated content</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number"><span class="counter" data-target="4.3">0</span>h</div>
+                    <p>Time employees spend weekly fact-checking AI outputs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mechanism Section -->
+    <section class="section section-dark" id="mechanism">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">02 / THE MECHANISM</span>
+                <h2 class="section-title">Why AI Lies</h2>
+            </div>
+
+            <div class="mechanism-grid">
+                <div class="mechanism-card">
+                    <div class="card-num">01</div>
+                    <h3>No Knowledge Database</h3>
+                    <p>LLMs don't store facts. They're prediction engines that guess the next word based on patterns.</p>
+                </div>
+                <div class="mechanism-card">
+                    <div class="card-num">02</div>
+                    <h3>Flow Over Facts</h3>
+                    <p>Models prioritize language fluency over accuracy. If it sounds right, it gets generated.</p>
+                </div>
+                <div class="mechanism-card">
+                    <div class="card-num">03</div>
+                    <h3>Trained to Please</h3>
+                    <p>Models are rewarded for being helpful, not honest. They guess rather than admit ignorance.</p>
+                </div>
+            </div>
+
+            <!-- Next Token Prediction Demo -->
+            <div class="prediction-demo">
+                <div class="demo-header">
+                    <span class="demo-tag">LIVE DEMO</span>
+                    <h3>Next Token Prediction</h3>
+                </div>
+                <div class="demo-content">
+                    <div class="token-row">
+                        <span class="token">The</span>
+                        <span class="token">184th</span>
+                        <span class="token">president</span>
+                        <span class="token">was</span>
+                        <span class="token predicted" id="predicted-token">???</span>
+                    </div>
+                    <div class="probability-bars">
+                        <div class="prob-row">
+                            <span class="prob-label">"John"</span>
+                            <div class="prob-bar"><div class="prob-fill" style="--w: 34%"></div></div>
+                            <span class="prob-pct">34%</span>
+                        </div>
+                        <div class="prob-row">
+                            <span class="prob-label">"elected"</span>
+                            <div class="prob-bar"><div class="prob-fill" style="--w: 28%"></div></div>
+                            <span class="prob-pct">28%</span>
+                        </div>
+                        <div class="prob-row">
+                            <span class="prob-label">"never"</span>
+                            <div class="prob-bar"><div class="prob-fill" style="--w: 12%"></div></div>
+                            <span class="prob-pct">12%</span>
+                        </div>
+                        <div class="prob-row error">
+                            <span class="prob-label">"[REFUSE]"</span>
+                            <div class="prob-bar"><div class="prob-fill" style="--w: 8%"></div></div>
+                            <span class="prob-pct">8%</span>
+                        </div>
+                    </div>
+                    <p class="demo-note">The model picks "John" because it sounds like a president's name. It never checks if the 184th president exists.</p>
+                </div>
+            </div>
+
+            <div class="callout-box">
+                <span class="callout-icon">⚠️</span>
+                <div>
+                    <h4>Long-Tail Knowledge Gap</h4>
+                    <p>Facts appearing only once in training data are <strong>guaranteed</strong> to be hallucinated at least 20% of the time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Myth Section -->
+    <section class="section" id="myth">
+        <div class="container narrow">
+            <div class="section-header center">
+                <span class="section-tag">DEBUNKED</span>
+                <h2 class="section-title">Bigger Brain ≠ Fewer Lies</h2>
+            </div>
+
+            <div class="myth-box">
+                <div class="myth-theory">
+                    <span class="label">THE THEORY</span>
+                    <p>Larger models make fewer mistakes</p>
+                </div>
+                <div class="myth-verdict">✗ WRONG</div>
+            </div>
+
+            <div class="model-bars">
+                <div class="model-row">
+                    <span class="model-name">OpenAI o3</span>
+                    <div class="model-bar"><div class="model-fill" style="--w: 33%"></div></div>
+                    <span class="model-pct">33%</span>
+                </div>
+                <div class="model-row worse">
+                    <span class="model-name">o4-mini</span>
+                    <div class="model-bar"><div class="model-fill" style="--w: 48%"></div></div>
+                    <span class="model-pct">48%</span>
+                </div>
+            </div>
+
+            <p class="myth-conclusion">Intelligence ≠ Honesty. Engineers are moving to architectural solutions.</p>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="section section-solutions" id="solutions">
+        <div class="container">
+            <div class="section-header center">
+                <span class="section-tag">03 / THE SOLUTIONS</span>
+                <h2 class="section-title">How We Fix It</h2>
+            </div>
+
+            <div class="solutions-grid">
+                <!-- RAG -->
+                <div class="solution-card">
+                    <div class="solution-header">
+                        <span class="solution-num">01</span>
+                        <h3>RAG</h3>
+                        <span class="solution-subtitle">Retrieval-Augmented Generation</span>
+                    </div>
+                    <div class="solution-visual rag-visual">
+                        <div class="rag-step">❓ Question</div>
+                        <div class="rag-arrow">→</div>
+                        <div class="rag-step">🔍 Search DB</div>
+                        <div class="rag-arrow">→</div>
+                        <div class="rag-step">📄 Evidence</div>
+                        <div class="rag-arrow">→</div>
+                        <div class="rag-step success">✓ Grounded Answer</div>
+                    </div>
+                    <p>Forces AI to search trusted databases and answer based only on retrieved evidence. Every claim becomes traceable.</p>
+                    <div class="solution-note">⚠ Only as good as your data source</div>
+                </div>
+
+                <!-- Multi-Agent -->
+                <div class="solution-card">
+                    <div class="solution-header">
+                        <span class="solution-num">02</span>
+                        <h3>Multi-Agent Debate</h3>
+                        <span class="solution-subtitle">AI Peer Review</span>
+                    </div>
+                    <div class="solution-visual agents-visual">
+                        <div class="agent writer">
+                            <span class="agent-icon">✍️</span>
+                            <span>Writer</span>
+                        </div>
+                        <div class="vs">⚔️</div>
+                        <div class="agent critic">
+                            <span class="agent-icon">🔍</span>
+                            <span>Critic</span>
+                        </div>
+                    </div>
+                    <p>Multiple AI models argue with each other. Writer generates, Critic attacks. They debate until consensus.</p>
+                </div>
+
+                <!-- Calibration -->
+                <div class="solution-card">
+                    <div class="solution-header">
+                        <span class="solution-num">03</span>
+                        <h3>Honesty Calibration</h3>
+                        <span class="solution-subtitle">Rewarding Uncertainty</span>
+                    </div>
+                    <div class="solution-visual calibration-visual">
+                        <div class="rule old">❌ Old: Reward confidence</div>
+                        <div class="rule new">✓ New: Penalize wrong guesses</div>
+                        <div class="rule new">✓ New: Reward "I don't know"</div>
+                    </div>
+                    <p>Standard training rewards sounding confident (teaching AI to lie). New methods reward admitting uncertainty.</p>
+                    <div class="solution-stat">
+                        <span class="big-num">240K+</span>
+                        <span>Human annotators calibrate models at Scale AI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Action Section -->
+    <section class="section" id="action">
+        <div class="container narrow">
+            <div class="section-header center">
+                <span class="section-tag">04 / TAKE ACTION</span>
+                <h2 class="section-title">What You Can Do</h2>
+            </div>
+
+            <div class="action-list">
+                <div class="action-item">
+                    <span class="action-num">1</span>
+                    <div>
+                        <h4>Treat AI output as a draft</h4>
+                        <p>Verify every claim. Never accept AI output as final.</p>
+                    </div>
+                </div>
+                <div class="action-item">
+                    <span class="action-num">2</span>
+                    <div>
+                        <h4>Use tools with citations</h4>
+                        <p>Perplexity, Bing Chat provide source links. Validate them yourself.</p>
+                    </div>
+                </div>
+                <div class="action-item">
+                    <span class="action-num">3</span>
+                    <div>
+                        <h4>Restructure your workflow</h4>
+                        <p>Build hallucination checks into your AI-assisted processes.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="final-message">
+                <p>The goal isn't eliminating hallucinations. That's mathematically impossible with current architectures.</p>
+                <p>The goal is building systems that <span class="glow">catch the lies</span> before they reach you.</p>
+                <div class="quote-block">
+                    <p>We're teaching machines it's okay to say:</p>
+                    <span class="big-quote">"I don't know."</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Article Section -->
+    <section class="section section-article" id="article">
+        <div class="container narrow">
+            <div class="section-header center">
+                <span class="section-tag">FULL TEXT</span>
+                <h2 class="section-title">The Complete<br>Article</h2>
+            </div>
+
+            <article class="article-content">
+                <p>You ask your AI assistant a simple history question about the 184th president of the United States. The model does not hesitate or pause to consider that there have only been 47 presidents in history. Instead, it generates a credible name and a fake inauguration ceremony. This behavior is called hallucination, and it is the single biggest hurdle stopping artificial intelligence from being truly reliable in extremely high-stakes fields such as healthcare and law.</p>
+
+                <h3>Problem's Scale</h3>
+                <p>You might think these errors are rare and assume technology companies have fixed this by now. However, the data show otherwise: recent studies tested six major AI models on tricky medical questions. The models provided false information in 50% to 82% of their answers. Even when researchers used specific prompts to guide the AI, nearly half of the responses still contained fabricated details.</p>
+                <p>This creates a massive hidden cost for businesses. A 2024 survey found that 47% of enterprise users made business decisions based on hallucinated AI-generated content. Employees now spend approximately 4.3 hours every week just fact-checking AI outputs, acting as babysitters for software that was supposed to automate their work.</p>
+
+                <h3>Why The Machine Lies</h3>
+                <p>Large Language Models do not know facts. They do not have a database of truth inside them. They are prediction engines. When you ask a question, the model examines your words and estimates the probability of the next word. It does this over and over. It's a very advanced version of your phone's autocomplete.</p>
+                <p>If you ask about the 184th president, the model does not check a history book. Instead, it identifies the pattern of a presidential biography, predicts words that sound like a biography, and prioritizes the language's flow over accuracy.</p>
+                <p>This happens because of "long-tail knowledge deficits." If a fact appears rarely in the training data, the model struggles to recall it accurately. Researchers found that if a fact appears only once in the training data, the model is statistically guaranteed to hallucinate it at least 20% of the time. But because the model is trained to be helpful, it guesses and fills in the gaps with plausible-sounding noise.</p>
+
+                <h3>The Bigger Brain Myth</h3>
+                <p>For a long time, the only solution was to build bigger models. The theory was that a larger brain would make fewer mistakes. That theory was wrong. Recent benchmarks show that larger, more "reasoning-heavy" models can actually hallucinate more. OpenAI's o3 model showed a hallucination rate of 33% on specific tests. The smaller o4-mini model reached 48%. Intelligence does not equal honesty.</p>
+
+                <h3>Solution 1: RAG (Retrieval-Augmented Generation)</h3>
+                <p>The most effective current method to reduce hallucination is RAG. When you ask a question, it searches a trusted external database, finds relevant documents, and then generates an answer based only on that evidence. This requires every claim to be traceable to a source, reducing the risk that the model invents facts. However, RAG has limits: if the retrieval system finds outdated information, the AI will confidently repeat it.</p>
+
+                <h3>Solution 2: Multi-Agent Verification</h3>
+                <p>Another promising method involves using multiple AI models at once. The industry is adopting multi-agent systems where different AI models argue with each other. One agent acts as the writer while a second agent acts as the ruthless critic. The writer generates a draft. The critic hunts for logical errors and hallucinations. If the critic finds a mistake, it rejects the draft. The models debate until they reach a solid consensus.</p>
+
+                <h3>Solution 3: Calibration</h3>
+                <p>The most exciting solution changes how we teach the model to behave. Standard training (RLHF) rewards the AI for sounding confident. It effectively teaches the system to lie. Engineers are fixing this by adding severe penalties when the model guesses wrong and giving rewards when it admits it does not know the answer. Companies like Scale AI employ over 240,000 human annotators to calibrate models.</p>
+
+                <h3>What You Can Do Now</h3>
+                <p>You must rigorously verify every claim because you should treat AI output as a rough draft rather than a final product. Use tools like Perplexity that provide direct links to sources so you can validate the citations yourself. The goal is not to eliminate hallucinations entirely. That's mathematically impossible with current model architectures. The goal is to build systems that catch the lies before they reach you.</p>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <span class="footer-logo">Hallucinations</span>
+            <p>Teaching machines honesty.</p>
+        </div>
+    </footer>
+
+    <!-- Mini Sidebar -->
+    <div class="mini-sidebar">
+        <a href="https://drive.google.com/drive/u/0/folders/1fYrX0Ll6zR31Sxj0x8M4xMyObbMukrqQ" target="_blank" class="mini-link">
+            <span>Audio</span>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+            </svg>
+        </a>
+        <a href="https://drive.google.com/drive/u/0/folders/1fYrX0Ll6zR31Sxj0x8M4xMyObbMukrqQ" target="_blank" class="mini-link">
+            <span>Visuals</span>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M7 17L17 7M17 7H7M17 7V17"/>
+            </svg>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

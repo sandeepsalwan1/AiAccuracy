@@ -1,0 +1,93 @@
+
+Illustration from: https://hitechnectar.com
+
+You ask your AI assistant a simple history question about the 184th president of the United States. The model does not hesitate or pause to consider that there have only been 47 presidents in history. Instead, it generates a credible name and a fake inauguration ceremony. This behavior is called hallucination, and it is the single biggest hurdle stopping artificial intelligence from being truly reliable in extremely high-stakes fields such as healthcare and law. You will learn why this hallucination happens, but more importantly, we need to examine the new methods we use to prevent it.
+
+Problem’s Scale
+You might think these errors are rare and assume technology companies have fixed this by now. However, the data show otherwise: recent studies tested six major AI models on tricky medical questions. The models provided false information in 50% to 82% of their answers! Even when researchers used specific prompts to guide the AI, nearly half of the responses still contained fabricated details.
+
+This creates a massive hidden cost for businesses, as a 2024 survey found that 47% of enterprise users made business decisions based on hallucinated AI-generated content. This is dangerous! It forces companies to treat AI errors as an unavoidable operational expense. Employees now spend approximately 4.3 hours every week just fact-checking AI outputs, and they must act as babysitters for software that was supposed to automate their work.
+
+Why The Machine Lies
+To fix the problem, you must understand the mechanism behind it. Large Language Models do not know facts. They do not have a database of truth inside them, but instead are just prediction engines.
+
+
+Illustration from: https://www.ssw.com.au/
+
+When you ask a question, the model examines your words and estimates the probability of the next word. It does this over and over again, and is a very advanced version of your phone’s autocomplete.
+
+If you ask about the 184th president, the model does not check a history book. Instead, it identifies the pattern of a presidential biography, predicts words that sound like a biography, and prioritizes the language’s flow over accuracy.
+
+This happens because of “long-tail knowledge deficits.” If a fact appears rarely in the training data, the model struggles to recall it accurately. Researchers found that if a fact appears only once in the training data, the model is statistically guaranteed to hallucinate it at least 20% of the time. But because the model is trained to be helpful, it guesses and fills in the gaps with plausible-sounding noise.
+
+The New Way
+For a long time, the only solution was to build bigger models. The theory was that a larger brain would make fewer mistakes. That theory was wrong. Recent benchmarks show that larger, more “reasoning-heavy” models can actually hallucinate more. OpenAI’s o3 model showed a hallucination rate of 33% on specific tests. The smaller o4-mini model reached 48%. Intelligence does not equal honesty. Engineers are now moving away from brute force and are using three specific architectural changes to force the AI to stick to the truth.
+
+Solution 1: The Open Book Test (RAG)
+The most effective current optimization method to reduce hallucination is Retrieval-Augmented Generation (RAG).
+
+Illustration from: https://allganize.ai
+
+AI(like ChatGPT) uses RAG which is when you ask a question, it searches a trusted external database, finds relevant documents, and then combines your question with those documents and generates an answer based only on that evidence. This requires every claim to be traceable to a source, reducing the risk that the model invents facts because it is grounded in the retrieved text. However, RAG has limits: if the retrieval system finds outdated news, the AI will confidently repeat it because RAG is only as good as the data you give it.
+When you ask a question, artificial intelligence ;;people make use of RAG
+
+Solution 2: Multi-Agent Verification
+Another promising method involves using multiple AI models at once. The industry is adopting multi-agent systems where different AI models(although most models are currently pretty identical because they’re trained on the same pretraining) argue with each other. One agent acts as the writer while a second agent acts as the ruthless critic. The writer generates a draft. The critic hunts for logical errors and hallucinations. If the critic finds a mistake, it rejects the draft. The models debate until they reach a solid consensus. This adversarial debate mechanism mimics human peer review. Recent studies by Yang and colleagues show that this method significantly improves accuracy in complex reasoning tasks compared to single models.
+
+Solution 3: Hybrid Approach (Calibration)
+The most exciting solution changes how we teach the model to behave. We currently train models using Reinforcement Learning (RLHF) from Human Feedback. This standard method rewards the AI for sounding confident. It effectively teaches the system to lie to you.
+Engineers are fixing this by changing the scoring system. We now add a severe mathematical penalty when the model guesses wrong. We give the model a small reward when it admits it does not know the answer, creating an incentive for honesty. This approach requires massive human infrastructure. 
+
+Companies like Scale AI employ over 240,000 human annotators to review model output. They explicitly label instances where the model should have refused to answer to calibrate the model. It aligns the model’s internal confidence with its actual accuracy.
+
+What You Can Do Now
+You must rigorously verify every claim because you should treat AI output as a rough draft rather than a final product. Use tools like Perplexity and provide direct links to sources so you can validate the citations yourself. You need to fundamentally adapt your professional workflow to account for these risks if you rely on these tools for work.  The goal is not to eliminate hallucinations entirely, as that’s mathematically impossible with current model architectures. The goal is to build systems that catch the lies before they reach you. We are building safety nets, verifiers, and calibration tools to teach the machine that it is okay to say “I don’t know.”
+
+
+Context Memo
+
+Genre and Audience
+ For this public writing project, I chose to write an Explainer Article in the style of a high-quality tech publication, such as a Medium tech blog. The primary audience is the curious general public and business professionals, which are people who use AI tools in their daily work but do not understand the mechanics that cause model failures. They are aware of the term “hallucination” but likely view it as a simple bug rather than a fundamental architectural feature.
+
+Translating our research from Project #2 required significant shifts in tone and structure.
+
+I removed the dense mathematical explanations of transformer architecture found in our academic paper. Instead of discussing “softmax layers” or “vector embeddings,” I used the “autocomplete” analogy to explain next-token prediction.
+I also shifted the focus heavily toward mitigation strategies like RAG and Calibration, as general audiences are typically more interested in solutions than taxonomy. However, I made sure to retain specific statistics from the research paper, such as the 47% enterprise decision statistic and the 50-82% medical hallucination rate. Using these complex numbers helps ground the article in reality and proves to the reader that this is a serious business problem rather than just a technical curiosity.
+
+The design choices were focused primarily on maximal readability on our digital screens.  I used to illustrate the concepts of hallucination taxonomy and RAG architecture because visual aids are essential for breaking up text and explaining complex processes. Structurally, I liked writing with simple narrative paragraphs and avoiding complex punctuation to keep the visual presentation clean and spartan.
+
+Professional Portfolio: This work is a fantastic addition to a Software Engineer’s portfolio. It highlights my ability to take complex technical research (LLM safety research) and communicate it clearly to non-technical audiences. The ability to explain why code fails to a team is as valuable as the ability to code itself.
+
+
+
+
+References
+Allganize. "Retriever Optimization Strategies for Successful RAG." Allganize AI Blog. https://www.allganize.ai/en/blog/retriever-optimization-strategies-for-successful-rag
+Bertram, Anna-Marie, Fanny Lalot, Lisa van der Werff, and Rainer Greifeneder. 2025. “Distrusting Minds, Skeptical Judgments? No Evidence for a Trust-Truth Link.” Frontiers in Psychology 16. https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2025.1626047/full.
+Booth, Harry. 2025. “Scale AI: TIME100 Most Influential Companies 2025.” TIME. https://time.com/collections/time100-companies-2025/7289594/scale-ai/.
+Cossio, Manuel. 2025. “A Comprehensive Taxonomy of Hallucinations in Large Language Models.” arXiv preprint arXiv:2508.01781. https://arxiv.org/abs/2508.01781.
+Farquhar, S., J. Kossen, L. Kuhn, and Y. Gal. 2024. “Detecting Hallucinations in Large Language Models Using Semantic Entropy.” Nature 630 (8017): 625–630.
+Hale, Craig. 2025. “Workers Are 'Gatekeeping' Skills to Protect Their Jobs from Being Taken by AI.” TechRadar, November 6, 2025. https://www.techradar.com/pro/workers-are-gatekeeping-skills-to-protect-their-jobs-from-being-taken-by-ai.
+HiTechNectar. "AI Hallucinations: What Are They? Recognizing the Risks and Solutions." HiTechNectar Blog. https://hitechnectar.com/blogs/ai-hallucinations-what-are-they-recognizing-the-risks-and-solutions/
+Hiriyanna, S., and W. Zhao. 2025. “Multi-Layered Framework for LLM Hallucination Mitigation in High-Stakes Applications: A Tutorial.” Computers 14 (8): 332.
+Hu, Y., Z. Lei, Z. Dai, A. Zhang, A. Angirekula, Z. Zhang, and L. Zhao. 2025. “CG-RAG: Research Question Answering by Citation Graph Retrieval-Augmented LLMs.” In Proceedings of SIGIR 2025, 678–687.
+Huang, Y., S. Zhang, and X. Xiao. 2025. “KET-RAG: A Cost-Efficient Multi-Granular Indexing Framework for Graph-RAG.” In Proceedings of KDD 2025, 1003–1012.
+Jiang, X., Y. Tian, F. Hua, C. Xu, Y. Wang, and J. Guo. 2024. “A Survey on Large Language Model Hallucination via a Creativity Perspective.” arXiv preprint arXiv:2402.06647. http://arxiv.org/abs/2402.06647.
+Kalai, Adam Tauman, Ofir Nachum, Santosh S. Vempala, and Edwin Zhang. 2025. “Why Language Models Hallucinate.” OpenAI Technical Report. https://cdn.openai.com/pdf/d04913be-3f6f-4d2b-b283-ff432ef4aaa5/why-language-models-hallucinate.pdf.
+Li, Yihan, Zijian Zhou, Sixian Li, Jiaqi Han, Xiaohan Li, Yuandong Tian, Karim Jerbi, Li Erran Li, and Vikas Chandra. 2025. “Mitigating Hallucination in Large Language Models (LLMs): An Application-Oriented Survey on RAG, Reasoning, and Agentic Systems.” arXiv preprint arXiv:2510.24476. https://arxiv.org/html/2510.24476v1.
+Li, Z., S. Zhang, H. Zhao, Y. Yang, and D. Yang. 2023. “BatGPT: A Bidirectional Autoregressive Talker from Generative Pre-Trained Transformer.” arXiv preprint arXiv:2307.00360.
+Lin, Z., X. Liu, M. Huang, L. Zhang, Y. Chen, and W. Xu. 2024. “Towards Trustworthy LLMs: A Review on Debiasing and Dehallucinating in Large Language Models.” Artificial Intelligence Review 57 (9): 243.
+Liu, N. F., K. Lin, J. Hewitt, A. Paranjape, M. Bevilacqua, F. Petroni, and P. Liang. 2024. “Lost in the Middle: How Language Models Use Long Contexts.” Transactions of the Association for Computational Linguistics 12: 157–173.
+Nguyen, T., P. Chin, and Y.-W. Tai. 2025. “MA-RAG: Multi-Agent Retrieval-Augmented Generation via Collaborative Chain-of-Thought Reasoning.” arXiv preprint arXiv:2505.20096. http://arxiv.org/abs/2505.20096.
+Omar, M., V. Sorin, J. D. Collins, A. Dhawan, E. Klang, M. Konen, T. Heller, and Y. Barash. 2025. “Multi-Model Assurance Analysis Showing Large Language Models Are Highly Vulnerable to Adversarial Hallucination Attacks During Clinical Decision Support.” Communications Medicine 5: 330.
+OpenAI. 2025. “OpenAI O3 and O4-Mini System Card.” Technical Report. https://cdn.openai.com/pdf/2221c875-02dc-4789-800b-e7758f3722c1/o3-and-o4-mini-system-card.pdf.
+Roustan, Dimitri, and François Bastardot. 2025. “The Clinicians' Guide to Large Language Models: A General Perspective with a Focus on Hallucinations.” Interactive Journal of Medical Research 14: e68969. https://pmc.ncbi.nlm.nih.gov/articles/PMC11815294/.
+Srivastava, A., A. Rastogi, A. Rao, A. A. M. Shoeb, A. Abid, A. Fisch, A. R. Brown, A. Santoro, A. Gupta, A. Garriga-Alonso, et al. 2023. “Beyond the Imitation Game: Quantifying and Extrapolating the Capabilities of Language Models.” Transactions on Machine Learning Research.
+SSW. "Build Reliable AI." SSW Articles. https://www.ssw.com.au/articles/build-reliable-ai.
+Vectara. 2025. “LLM Hallucination Leaderboard - A Hugging Face Space by Vectara.” Hugging Face. https://huggingface.co/spaces/vectara/leaderboard.
+Yang, Y., Y. Zhang, X. Chen, W. Li, and J. Wang. 2025. “Minimizing Hallucinations and Communication Costs: Adversarial Debate and Voting Mechanisms in LLM-Based Multi-Agents.” Applied Sciences 15 (7): 3676.
+Yao, S., J. Zhao, D. Yu, N. Du, I. Shafran, K. R. Narasimhan, and Y. Cao. 2023. “ReAct: Synergizing Reasoning and Acting in Language Models.” In Proceedings of ICLR 2023.
+Yu, S., G. Kim, and S. Kang. 2025. “Context and Layers in Harmony: A Unified Strategy for Mitigating LLM Hallucinations.” Mathematics 13 (11): 1831.
+Zhang, W., and J. Zhang. 2025. “Hallucination Mitigation for Retrieval-Augmented Large Language Models: A Review.” Mathematics 13 (5): 856.
+Zhang, Z., C. Wang, Y. Wang, E. Shi, Y. Ma, W. Zhong, J. Chen, M. Mao, and Z. Zheng. 2025. “LLM Hallucinations in Practical Code Generation: Phenomena, Mechanism, and Mitigation.” Proceedings of the ACM on Software Engineering 2 (ISSTA): Article ISSTA022.
+

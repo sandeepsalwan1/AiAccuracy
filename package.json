@@ -1,0 +1,10 @@
+{
+  "name": "ai-hallucinations-explainer",
+  "version": "1.0.0",
+  "description": "An interactive explainer website about AI hallucinations",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve ."
+  }
+}
+
